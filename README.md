@@ -1,58 +1,161 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Management Inventaris
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web Management Inventaris untuk mengelola data anggota dan barang inventaris perusahaan. Proyek ini dibuat menggunakan Laravel sebagai backend API dan Vue.js sebagai frontend.
 
-## About Laravel
+## Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Login dan autentikasi menggunakan Laravel Sanctum.
+- Manajemen anggota: tambah, lihat, edit, dan hapus.
+- Manajemen inventaris: tambah, lihat, edit, dan hapus.
+- Relasi inventaris dengan anggota yang bertanggung jawab.
+- Dashboard analytics inventaris.
+- REST API dengan metode HTTP yang sesuai.
+- Proteksi endpoint menggunakan Bearer Token.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Teknologi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Backend:** Laravel, PHP
+- **Frontend:** Vue.js, Vite
+- **Database:** MySQL / MariaDB
+- **Authentication:** Laravel Sanctum
+- **Version Control:** Git dan GitHub
 
-## Learning Laravel
+## Persyaratan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Pastikan perangkat sudah memiliki:
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP sesuai kebutuhan versi Laravel pada proyek ini
+- Composer
+- Node.js dan npm
+- MySQL atau MariaDB
+- Git
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Instalasi
 
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 1. Clone repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/nurulsyafiqa307-wq/tesskill.git
+cd tesskill
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Instal dependensi backend
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Konfigurasi environment
 
-## Code of Conduct
+Salin file environment contoh:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+copy .env.example .env
+```
 
-## Security Vulnerabilities
+Buat application key:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan key:generate
+```
 
-## License
+Sesuaikan konfigurasi database di file `.env`:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Buat database bernama `laravel` terlebih dahulu melalui phpMyAdmin atau MySQL. Sesuaikan nama database dan kredensial jika konfigurasi lokal berbeda.
+
+### 4. Migrasi database dan buat akun demo
+
+```bash
+php artisan migrate --seed
+```
+
+Perintah ini menjalankan migrasi dan seeder yang tersedia. Data anggota dan inventaris tambahan dapat dibuat melalui aplikasi setelah login.
+
+### 5. Instal dependensi frontend
+
+```bash
+npm install
+```
+
+## Menjalankan Aplikasi
+
+Jalankan backend dan frontend di dua terminal terpisah.
+
+### Terminal 1 — Backend Laravel
+
+```bash
+php artisan serve
+```
+
+Backend berjalan secara default di:
+
+`http://127.0.0.1:8000`
+
+### Terminal 2 — Frontend Vue dan Vite
+
+```bash
+npm run dev
+```
+
+Buka alamat frontend yang ditampilkan oleh Vite di terminal.
+
+## Akun Demo
+
+Gunakan akun berikut untuk mencoba aplikasi, apabila akun demo telah dibuat oleh seeder:
+
+- **Email:** `admin@botika.online`
+- **Password:** `password123`
+
+Ganti kredensial demo sebelum aplikasi digunakan di lingkungan produksi.
+
+## REST API
+
+Base URL lokal:
+
+`http://127.0.0.1:8000/api`
+
+| Method | Endpoint | Keterangan |
+|---|---|---|
+| POST | `/login` | Login dan memperoleh token |
+| GET | `/user` | Mendapatkan profil pengguna |
+| GET | `/members` | Menampilkan anggota |
+| POST | `/members` | Menambahkan anggota |
+| GET | `/members/{id}` | Detail anggota |
+| PUT/PATCH | `/members/{id}` | Memperbarui anggota |
+| DELETE | `/members/{id}` | Menghapus anggota |
+| GET | `/inventories` | Menampilkan inventaris |
+| POST | `/inventories` | Menambahkan inventaris |
+| GET | `/inventories/{id}` | Detail inventaris |
+| PUT/PATCH | `/inventories/{id}` | Memperbarui inventaris |
+| DELETE | `/inventories/{id}` | Menghapus inventaris |
+| GET | `/inventories/analytics` | Data analytics inventaris |
+
+Endpoint yang dilindungi memerlukan token autentikasi dengan header:
+
+```http
+Authorization: Bearer YOUR_TOKEN
+Accept: application/json
+```
+
+Token diperoleh melalui endpoint login.
+
+## Keamanan
+
+- Endpoint yang dilindungi menggunakan autentikasi Laravel Sanctum.
+- File `.env` tidak boleh diunggah ke repository publik.
+- Gunakan kredensial dan konfigurasi yang aman untuk deployment.
+
+## Developer
+
+**Nurul Syafiqa Ramadhan**
+
+Project: Management Inventaris — Full Stack Developer Skill Test.
