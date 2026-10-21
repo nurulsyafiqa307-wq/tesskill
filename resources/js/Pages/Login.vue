@@ -1,4 +1,3 @@
-
 <template>
   <div
     class="min-h-screen bg-gradient-to-br from-slate-100 via-slate-50 to-indigo-50/40 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 font-sans flex items-center justify-center p-4 transition-colors duration-300"
@@ -16,7 +15,6 @@
             </div>
 
 
-      <!-- Judul Login -->
       <h2
         class="text-[26px] leading-tight font-bold text-slate-900 dark:text-white tracking-tight mb-2 text-center"
       >
@@ -29,7 +27,6 @@
         Silakan masukkan email dan password internal perusahaan.
       </p>
 
-      <!-- Form Login -->
       <form @submit.prevent="handleLogin" class="space-y-5">
         <div>
           <label
@@ -69,7 +66,6 @@
           />
         </div>
 
-        <!-- Tombol Masuk -->
         <button
           type="submit"
           class="w-full py-3.5 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 dark:from-indigo-600 dark:to-indigo-700 dark:hover:from-indigo-500 dark:hover:to-indigo-600 text-white rounded-xl text-sm font-semibold shadow-lg shadow-slate-900/20 dark:shadow-indigo-900/30 hover:shadow-xl transition-all duration-200 cursor-pointer mt-4 active:scale-[0.98]"
@@ -77,8 +73,6 @@
           Masuk
         </button>
       </form>
-
-      <!-- Footer -->
       <div
         class="mt-8 text-center text-xs text-slate-400 dark:text-slate-500 font-medium"
       >

@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 font-sans flex flex-col md:flex-row transition-colors duration-300">
     
-    <!-- 1. MOBILE TOP NAVBAR -->
     <div class="md:hidden bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
       <div class="flex items-center gap-2">
         <img :src="'/images/logo.png'" alt="Logo" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-700 shadow-md" />
@@ -15,7 +14,6 @@
       </button>
     </div>
 
-    <!-- MOBILE DROPDOWN MENU -->
     <div v-if="mobileMenuOpen" class="md:hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700 p-4 space-y-2 sticky top-14 z-40 shadow-xl">
       <a href="/inventories" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700">Data Inventaris</a>
       <a href="/members" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-900 dark:text-white bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/50 dark:to-purple-950/50 border border-indigo-100 dark:border-indigo-800">Management Anggota</a>
@@ -23,10 +21,8 @@
       <button @click="logout" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20">Logout</button>
     </div>
 
-    <!-- 2. DESKTOP SIDEBAR -->
     <aside class="w-72 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border-r border-slate-200 dark:border-slate-700/50 flex-col justify-between hidden md:flex sticky top-0 h-screen transition-colors duration-300 shadow-xl">
       <div>
-        <!-- Logo Header dengan gradient halus -->
         <div class="p-6 border-b border-slate-100 dark:border-slate-700/50 flex items-center gap-3 bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-700/30">
           <img :src="'/images/logo.png'" alt="Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-600 shadow-lg" />
           <div>
@@ -45,7 +41,6 @@
             <span>Data Inventaris</span>
           </a>
 
-          <!-- Active Menu -->
           <a href="/members" class="group flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-600 shadow-lg shadow-indigo-500/30 dark:shadow-indigo-900/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/40">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-xl bg-white/20 dark:bg-white/10 flex items-center justify-center text-white backdrop-blur-sm">
@@ -69,7 +64,6 @@
         </div>
       </div>
 
-      <!-- User Card Footer -->
       <div class="p-4 border-t border-slate-100 dark:border-slate-700/50">
         <div class="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-700/50 dark:to-slate-800 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-600/50 shadow-sm space-y-3">
           <div class="flex items-center gap-3">
@@ -85,7 +79,6 @@
             </div>
           </div>
 
-          <!-- Dark Theme Toggle -->
           <div class="flex items-center justify-between pt-2 border-t border-slate-200/80 dark:border-slate-600/50 text-xs text-slate-700 dark:text-slate-300 font-medium">
             <div class="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-600 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,11 +102,8 @@
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main class="flex-1 p-4 md:p-8 overflow-y-auto">
       <div class="max-w-7xl mx-auto">
-        
-        <!-- Header Card -->
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl px-6 py-5 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 gap-4 transition-all duration-300">
           <div>
             <h1 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Management Anggota</h1>
@@ -143,8 +133,7 @@
             </button>
           </div>
         </div>
-        
-        <!-- Table Card -->
+
         <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 overflow-hidden transition-all duration-300">
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
@@ -189,7 +178,6 @@
             </table>
           </div>
 
-          <!-- Pagination -->
           <div class="px-6 py-4 bg-white/50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-300 transition-colors duration-200">
             <div class="flex items-center gap-2">
               <span>Showing</span>
@@ -223,7 +211,6 @@
       </div>
     </main>
 
-    <!-- MODAL -->
     <div v-if="showModal" class="fixed inset-0 bg-slate-900/60 dark:bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700/50 transition-all duration-300 animate-[scaleIn_0.2s_ease-out]">
         <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1">

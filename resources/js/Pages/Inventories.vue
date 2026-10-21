@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 font-sans flex flex-col md:flex-row transition-colors duration-300">
-    
-    <!-- 1. MOBILE TOP NAVBAR -->
+
     <div class="md:hidden bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
       <div class="flex items-center gap-2">
         <img :src="'/images/logo.png'" alt="Logo" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-700 shadow-md" />
@@ -15,7 +14,6 @@
       </button>
     </div>
 
-    <!-- MOBILE DROPDOWN MENU -->
     <div v-if="mobileMenuOpen" class="md:hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700 p-4 space-y-2 sticky top-14 z-40 shadow-xl">
       <a href="/inventories" class="block px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-900 dark:text-white bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/50 dark:to-purple-950/50 border border-indigo-100 dark:border-indigo-800">Data Inventaris</a>
       <a href="/members" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700">Management Anggota</a>
@@ -23,14 +21,10 @@
       <button @click="logout" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20">Logout</button>
     </div>
 
-    <!-- 2. DESKTOP SIDEBAR -->
     <aside class="w-72 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border-r border-slate-200 dark:border-slate-700/50 flex-col justify-between hidden md:flex sticky top-0 h-screen transition-colors duration-300 shadow-xl">
       <div>
-        <!-- Logo Header dengan gradient halus -->
         <div class="p-6 border-b border-slate-100 dark:border-slate-700/50 flex items-center gap-3 bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-700/30">
-          <div class="relative">
-            <img :src="'/images/logo.png'" alt="Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-600 shadow-lg" />
-          </div>
+          <img :src="'/images/logo.png'" alt="Logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-white dark:ring-slate-600 shadow-lg" />
           <div>
             <h2 class="text-xs font-semibold text-slate-400 leading-none uppercase tracking-wider">managemen</h2>
             <h1 class="text-base font-bold text-slate-900 dark:text-white tracking-tight">inventaris.</h1>
@@ -38,7 +32,6 @@
         </div>
 
         <div class="p-4 space-y-1">
-          <!-- Active Menu -->
           <a href="/inventories" class="group flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-500 dark:to-purple-600 shadow-lg shadow-indigo-500/30 dark:shadow-indigo-900/50 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/40">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-xl bg-white/20 dark:bg-white/10 flex items-center justify-center text-white backdrop-blur-sm">
@@ -71,7 +64,6 @@
         </div>
       </div>
 
-      <!-- User Card Footer -->
       <div class="p-4 border-t border-slate-100 dark:border-slate-700/50">
         <div class="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-700/50 dark:to-slate-800 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-600/50 shadow-sm space-y-3">
           <div class="flex items-center gap-3">
@@ -87,7 +79,6 @@
             </div>
           </div>
 
-          <!-- Dark Theme Toggle -->
           <div class="flex items-center justify-between pt-2 border-t border-slate-200/80 dark:border-slate-600/50 text-xs text-slate-700 dark:text-slate-300 font-medium">
             <div class="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-600 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -111,11 +102,9 @@
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main class="flex-1 p-4 md:p-8 overflow-y-auto">
       <div class="max-w-7xl mx-auto">
         
-        <!-- Header Card -->
         <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl px-6 py-5 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 gap-4 transition-all duration-300">
           <div>
             <h1 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Data Inventaris</h1>
@@ -146,7 +135,6 @@
           </div>
         </div>
         
-        <!-- Table Card -->
         <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 overflow-hidden transition-all duration-300">
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse">
@@ -173,16 +161,16 @@
                     <td class="py-4 px-4 text-slate-600 dark:text-slate-300">{{ item.type }}</td>
                     <td class="py-4 px-4 font-mono text-xs text-slate-500 dark:text-slate-400">{{ item.serial_number }}</td>
                     <td class="py-4 px-4 text-slate-600 dark:text-slate-300">{{ item.spesifikasi }}</td>
-                   <td class="py-4 px-4">
-                    <span :class="{
-                      'bg-gradient-to-r from-emerald-50 to-emerald-100/50 dark:from-emerald-950/50 dark:to-emerald-900/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/50': item.status === 'Baik',
-                      'bg-gradient-to-r from-rose-50 to-rose-100/50 dark:from-rose-950/50 dark:to-rose-900/30 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-800/50': item.status === 'Rusak',
-                      'bg-gradient-to-r from-sky-50 to-sky-100/50 dark:from-sky-950/50 dark:to-sky-900/30 text-sky-700 dark:text-sky-400 border-sky-200 dark:border-sky-800/50': item.status === 'Tidak Dipakai',
-                      'bg-gradient-to-r from-amber-50 to-amber-100/50 dark:from-amber-950/50 dark:to-amber-900/30 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/50': item.status === 'Dilelang'
-                    }" class="px-3 py-1 rounded-full text-xs font-medium border shadow-sm whitespace-nowrap">
-                      {{ item.status }}
-                    </span>
-                  </td>
+                    <td class="py-4 px-4">
+                      <span :class="{
+                        'bg-gradient-to-r from-emerald-50 to-emerald-100/50 dark:from-emerald-950/50 dark:to-emerald-900/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/50': item.status === 'Baik',
+                        'bg-gradient-to-r from-rose-50 to-rose-100/50 dark:from-rose-950/50 dark:to-rose-900/30 text-rose-700 dark:text-rose-400 border-rose-200 dark:border-rose-800/50': item.status === 'Rusak',
+                        'bg-gradient-to-r from-sky-50 to-sky-100/50 dark:from-sky-950/50 dark:to-sky-900/30 text-sky-700 dark:text-sky-400 border-sky-200 dark:border-sky-800/50': item.status === 'Tidak Dipakai',
+                        'bg-gradient-to-r from-amber-50 to-amber-100/50 dark:from-amber-950/50 dark:to-amber-900/30 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800/50': item.status === 'Dilelang'
+                      }" class="px-3 py-1 rounded-full text-xs font-medium border shadow-sm whitespace-nowrap">
+                        {{ item.status }}
+                      </span>
+                    </td>
                     <td class="py-4 px-4 text-slate-600 dark:text-slate-300 font-medium">{{ item.assign }}</td>
                     <td class="py-4 px-4 text-slate-600 dark:text-slate-300">{{ item.department }}</td>
                     <td class="py-4 px-4 text-center space-x-1 whitespace-nowrap">
@@ -206,7 +194,6 @@
             </table>
           </div>
 
-          <!-- Pagination -->
           <div class="px-6 py-4 bg-white/50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600 dark:text-slate-300 transition-colors duration-200">
             <div class="flex items-center gap-2">
               <span>Showing</span>
@@ -240,9 +227,8 @@
       </div>
     </main>
 
-    <!-- MODAL -->
     <div v-if="showModal" class="fixed inset-0 bg-slate-900/60 dark:bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700/50 max-h-[90vh] overflow-y-auto transition-all duration-300 animate-[scaleIn_0.2s_ease-out]">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700/50 transition-all duration-300 animate-[scaleIn_0.2s_ease-out]">
         <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-1">
           {{ isEditMode ? 'Edit Data Inventaris' : 'Tambah Barang Baru' }}
         </h3>
@@ -286,15 +272,32 @@
                 <option value="Dilelang">Dilelang</option>
               </select>
             </div>
-            <div>
-              <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase mb-1.5 tracking-wider">Assign</label>
-              <select v-model="form.assign" @change="onMemberChange" required class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all cursor-pointer">
-                <option disabled value="">Pilih Anggota</option>
-                <option v-for="member in members" :key="member.id" :value="member.nama">
-                  {{ member.nama }}
-                </option>
-              </select>
+
+            <div class="relative">
+              <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase mb-1.5 tracking-wider">Assign (Cari / Pilih)</label>
+              <input 
+                v-model="form.assign" 
+                @input="onMemberInput" 
+                @focus="showMemberDropdown = true" 
+                @blur="hideMemberDropdown"
+                required 
+                placeholder="Ketik atau pilih nama..." 
+                autocomplete="off"
+                class="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500 transition-all" 
+              />
+              <div v-if="showMemberDropdown && filteredMembersList.length > 0" class="absolute top-full left-0 right-0 z-50 mt-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl shadow-lg max-h-48 overflow-y-auto">
+                <div 
+                  v-for="member in filteredMembersList" 
+                  :key="member.id" 
+                  @mousedown.prevent="selectMember(member)" 
+                  class="px-3 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-600 hover:text-indigo-700 dark:hover:text-white cursor-pointer transition-colors"
+                >
+                  <div class="font-medium">{{ member.nama }}</div>
+                  <div class="text-xs text-slate-500 dark:text-slate-400">{{ member.department }}</div>
+                </div>
+              </div>
             </div>
+
             <div>
               <label class="block text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase mb-1.5 tracking-wider">Department</label>
               <input v-model="form.department" type="text" readonly placeholder="Otomatis terisi" class="w-full px-3 py-2.5 bg-slate-100 dark:bg-slate-700/30 border border-slate-200 dark:border-slate-600 rounded-xl text-sm text-slate-500 dark:text-slate-400 cursor-not-allowed focus:outline-none" />
@@ -333,6 +336,7 @@ export default {
       isEditMode: false,
       isDarkMode: false,
       mobileMenuOpen: false,
+      showMemberDropdown: false,
       formId: null,
       form: {
         inventaris_id: '',
@@ -370,6 +374,11 @@ export default {
     userInitial() {
       if (!this.user.name) return '?';
       return this.user.name.charAt(0).toUpperCase();
+    },
+    filteredMembersList() {
+      if (!this.form.assign) return this.members;
+      const query = this.form.assign.toLowerCase();
+      return this.members.filter(m => m.nama.toLowerCase().includes(query));
     }
   },
   watch: {
@@ -427,13 +436,24 @@ export default {
           console.error("Gagal memuat data anggota:", error);
         });
     },
-    onMemberChange() {
+    onMemberInput() {
+      this.showMemberDropdown = true;
       const selected = this.members.find(m => m.nama === this.form.assign);
       if (selected) {
         this.form.department = selected.department;
       } else {
         this.form.department = '';
       }
+    },
+    selectMember(member) {
+      this.form.assign = member.nama;
+      this.form.department = member.department;
+      this.showMemberDropdown = false;
+    },
+    hideMemberDropdown() {
+      setTimeout(() => {
+        this.showMemberDropdown = false;
+      }, 200);
     },
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
@@ -453,12 +473,14 @@ export default {
         assign: '',
         department: ''
       };
+      this.showMemberDropdown = false;
       this.showModal = true;
     },
     openEditModal(item) {
       this.isEditMode = true;
       this.formId = item.id;
       this.form = { ...item };
+      this.showMemberDropdown = false;
       this.showModal = true;
     },
     saveInventory() {
@@ -570,7 +592,6 @@ export default {
   }
 }
 
-/* Smooth scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

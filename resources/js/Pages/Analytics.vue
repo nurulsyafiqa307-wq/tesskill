@@ -1,7 +1,6 @@
 <template>
   <div class="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 font-sans flex flex-col md:flex-row transition-colors duration-300">
     
-    <!-- 1. MOBILE TOP NAVBAR -->
     <div class="md:hidden bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
       <div class="flex items-center gap-2">
         <img :src="'/images/logo.png'" alt="Logo" class="w-8 h-8 rounded-full object-cover ring-2 ring-white dark:ring-slate-700 shadow-md" />
@@ -15,7 +14,6 @@
       </button>
     </div>
 
-    <!-- MOBILE DROPDOWN MENU -->
     <div v-if="mobileMenuOpen" class="md:hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-lg border-b border-slate-200 dark:border-slate-700 p-4 space-y-2 sticky top-14 z-40 shadow-xl">
       <a href="/inventories" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700">Data Inventaris</a>
       <a href="/members" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700">Management Anggota</a>
@@ -23,7 +21,6 @@
       <button @click="logout" class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20">Logout</button>
     </div>
 
-    <!-- 2. DESKTOP SIDEBAR -->
     <aside class="w-72 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl border-r border-slate-200 dark:border-slate-700/50 flex-col justify-between hidden md:flex sticky top-0 h-screen transition-colors duration-300 shadow-xl">
       <div>
         <div class="p-6 border-b border-slate-100 dark:border-slate-700/50 flex items-center gap-3 bg-gradient-to-r from-slate-50 to-transparent dark:from-slate-700/30">
@@ -105,11 +102,9 @@
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
+
     <main class="flex-1 p-4 md:p-8 overflow-y-auto">
       <div class="max-w-7xl mx-auto space-y-6">
-        
-        <!-- Header Card -->
         <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-6 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 transition-all duration-300">
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
@@ -125,10 +120,7 @@
           </div>
         </div>
 
-        <!-- 4 Cards Statistik -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          
-          <!-- Card Barang Baik -->
           <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-5 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/10 hover:-translate-y-1 hover:border-emerald-200 dark:hover:border-emerald-800/50">
             <div class="flex justify-between items-start mb-4">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/50 dark:to-emerald-900/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800/50 shadow-sm">
@@ -142,7 +134,6 @@
             <div class="text-3xl font-bold text-slate-800 dark:text-white mt-1">{{ stats.baik }}</div>
           </div>
 
-          <!-- Card Barang Rusak -->
           <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-5 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/10 hover:-translate-y-1 hover:border-rose-200 dark:hover:border-rose-800/50">
             <div class="flex justify-between items-start mb-4">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-50 to-rose-100 dark:from-rose-950/50 dark:to-rose-900/30 flex items-center justify-center text-rose-600 dark:text-rose-400 border border-rose-100 dark:border-rose-800/50 shadow-sm">
@@ -156,7 +147,6 @@
             <div class="text-3xl font-bold text-slate-800 dark:text-white mt-1">{{ stats.rusak }}</div>
           </div>
 
-          <!-- Card Dilelang -->
           <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-5 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/10 hover:-translate-y-1 hover:border-amber-200 dark:hover:border-amber-800/50">
             <div class="flex justify-between items-start mb-4">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950/50 dark:to-amber-900/30 flex items-center justify-center text-amber-600 dark:text-amber-400 border border-amber-100 dark:border-amber-800/50 shadow-sm">
@@ -170,7 +160,6 @@
             <div class="text-3xl font-bold text-slate-800 dark:text-white mt-1">{{ stats.dilelang }}</div>
           </div>
 
-          <!-- Card Tidak Dipakai -->
           <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-5 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10 hover:-translate-y-1 hover:border-sky-200 dark:hover:border-sky-800/50">
             <div class="flex justify-between items-start mb-4">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sky-50 to-sky-100 dark:from-sky-950/50 dark:to-sky-900/30 flex items-center justify-center text-sky-600 dark:text-sky-400 border border-sky-100 dark:border-sky-800/50 shadow-sm">
@@ -186,7 +175,6 @@
 
         </div>
 
-        <!-- Grafik Card -->
         <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-6 rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 border border-slate-200 dark:border-slate-700/50 transition-all duration-300">
           <div class="flex items-center justify-between mb-6">
             <div>
@@ -198,11 +186,8 @@
             </div>
           </div>
 
-          <!-- Chart Container -->
           <div class="overflow-hidden">
-           <!-- Chart Area -->
         <div class="relative h-72 flex">
-          <!-- Y-axis Labels -->
           <div class="flex flex-col justify-between text-xs text-slate-400 dark:text-slate-500 pr-3 select-none font-medium text-right w-8">
             <span>{{ maxChartValue }}</span>
             <span>{{ Math.round(maxChartValue * 0.8) }}</span>
@@ -212,9 +197,7 @@
             <span>0</span>
           </div>
 
-          <!-- Plot Area -->
           <div class="relative flex-1 flex flex-col">
-            <!-- Gridlines -->
             <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
               <div class="border-t border-dashed border-slate-200/70 dark:border-slate-700/50 w-full"></div>
               <div class="border-t border-dashed border-slate-200/70 dark:border-slate-700/50 w-full"></div>
@@ -224,7 +207,6 @@
               <div class="border-t-2 border-slate-300 dark:border-slate-600 w-full"></div>
             </div>
 
-            <!-- Bars -->
             <div class="relative flex-1 flex items-end justify-around px-2 z-10 gap-3">
               <div v-for="(bar, index) in chartBars" :key="index" class="flex flex-col items-center h-full justify-end flex-1 max-w-[120px]">
                 <span class="text-sm font-bold mb-1" :class="bar.textColor">{{ bar.value }}</span>
@@ -237,7 +219,7 @@
             </div>
           </div>
         </div>
-            <!-- X-axis Labels (separate row below chart, tanpa border-top) -->
+
             <div class="flex justify-around px-2 pt-3 mt-1 ml-10 gap-3">
               <div v-for="(bar, index) in chartBars" :key="index" class="flex-1 max-w-[120px] text-center">
                 <span class="text-xs font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap">{{ bar.label }}</span>
